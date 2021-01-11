@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Login Page</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/login.css"/>
+</head>
+<body>
+    <div class="login">
+	<h1>Login</h1>
+    <form action="/login/" method="post">
+        {% csrf_token %}
+        {% if messages %}
+    <ul class="messages">
+            {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    	<input type="text" name="username" placeholder="Username" required="required" />
+        <input type="password" name="password" placeholder="Password" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Let Me In</button>
+    </form>
+</div>
+</body>
+</html>

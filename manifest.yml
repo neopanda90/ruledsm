@@ -1,0 +1,7 @@
+  applications:
+  - name: ruleudsm
+    random-route: true
+    memory: 512M
+    disk_quota: 1G
+    command: python3 manage.py runserver 0.0.0.0:8080
+    buildpack: python_buildpack
